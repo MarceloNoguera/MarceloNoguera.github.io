@@ -3,24 +3,31 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Marcelo Noguera — Security Engineer & Applied AI</title>
+<title>Marcelo Noguera — Offensive Security &amp; Applied AI</title>
 <meta name="description" content="Senior Cybersecurity Specialist with 7+ years in offensive security across Latin American financial institutions. Recognized by NASA's VDP, awarded by Anduril Industries. Building applied multimodal AI systems." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▚</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%236ee7b7' stroke-width='7'/><circle cx='50' cy='50' r='10' fill='%236ee7b7'/></svg>" />
 <style>
   :root{
-    --bg:#171717;
-    --bg-elev:#1c1c1c;
-    --fg:#fafafa;
-    --fg-muted:#a6a6a6;
-    --fg-dim:#737373;
-    --border:#333333;
-    --border-soft:#282828;
-    --radius:.5rem;
-    --maxw:1080px;
-    --accent:#fafafa;
+    --bg:#0a0a0a;
+    --bg-2:#0d0d0d;
+    --card:#141414;
+    --card-2:#181818;
+    --border:#242424;
+    --border-2:#2e2e2e;
+    --fg:#f5f5f5;
+    --muted:#8a8a8a;
+    --dim:#5f5f5f;
+    --mint:#6ee7b7;
+    --mint-2:#34d399;
+    --mint-deep:#064e3b;
+    --cream:#f0ece4;
+    --cream-fg:#141414;
+    --cream-muted:#5c5850;
+    --r:14px;
+    --maxw:1120px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -28,230 +35,274 @@
 
   body{
     font-family:Inter,system-ui,-apple-system,sans-serif;
-    background:var(--bg);
-    color:var(--fg);
-    line-height:1.6;
-    font-size:16px;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background:var(--bg);color:var(--fg);
+    line-height:1.6;font-size:16px;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
 
-  body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    background:
-      radial-gradient(600px circle at 15% 0%, rgba(255,255,255,.045), transparent 60%),
-      radial-gradient(700px circle at 85% 12%, rgba(255,255,255,.028), transparent 62%);
-  }
-
-  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
-
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
   a{color:inherit;text-decoration:none}
 
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(23,23,23,.72);
-    backdrop-filter:blur(12px) saturate(1.4);
-    -webkit-backdrop-filter:blur(12px) saturate(1.4);
-    border-bottom:1px solid var(--border-soft);
-  }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{font-weight:600;letter-spacing:-.01em;font-size:.95rem}
-  .brand span{color:var(--fg-dim);font-weight:400}
-  .navlinks{display:flex;gap:28px;font-size:.875rem;color:var(--fg-muted)}
-  .navlinks a{transition:color .18s}
-  .navlinks a:hover{color:var(--fg)}
-  @media(max-width:720px){.navlinks{display:none}}
+  .serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.01em}
+  .serif-i{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400}
+  .mint{color:var(--mint)}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 
-  /* ---------- sections ---------- */
-  section{padding:88px 0;border-bottom:1px solid var(--border-soft)}
-  section:last-of-type{border-bottom:none}
-
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--fg-dim);
-    margin-bottom:18px;
+  /* ================= NAV ================= */
+  .navbar{position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 16px}
+  .nav-pill{
+    display:flex;align-items:center;gap:6px;
+    background:rgba(18,18,18,.82);
+    backdrop-filter:blur(16px) saturate(1.6);
+    -webkit-backdrop-filter:blur(16px) saturate(1.6);
+    border:1px solid var(--border-2);
+    border-radius:999px;padding:6px 6px 6px 16px;
+    box-shadow:0 8px 32px rgba(0,0,0,.5);
+    max-width:100%;
   }
+  .nav-brand{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;padding-right:10px;white-space:nowrap}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint);flex-shrink:0}
+  .nav-links{display:flex;gap:2px}
+  .nav-links a{
+    font-size:.8rem;color:var(--muted);padding:7px 13px;border-radius:999px;
+    transition:color .18s,background .18s;white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--fg);background:rgba(255,255,255,.055)}
+  .nav-cta{
+    font-size:.8rem;font-weight:500;color:#05130d;background:var(--mint);
+    padding:8px 15px;border-radius:999px;white-space:nowrap;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(110,231,183,.28)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;padding:150px 0 92px;overflow:hidden}
+  .hero::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(760px circle at 78% 34%, rgba(110,231,183,.10), transparent 62%),
+      radial-gradient(520px circle at 8% 8%, rgba(110,231,183,.045), transparent 60%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:56px}}
+
+  .marker{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'JetBrains Mono',monospace;font-size:.68rem;
+    letter-spacing:.17em;text-transform:uppercase;color:var(--mint);
+    margin-bottom:26px;
+  }
+  .marker::before{content:'';width:0;height:0;border-left:5px solid var(--mint);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
 
   h1{
-    font-size:clamp(2.1rem,5.4vw,3.6rem);
-    line-height:1.08;
-    letter-spacing:-.033em;
-    font-weight:600;
-    margin-bottom:22px;
-    max-width:17ch;
+    font-size:clamp(2.6rem,6.2vw,4.5rem);
+    line-height:1.02;letter-spacing:-.03em;font-weight:600;
+    margin-bottom:26px;
   }
+  h1 .serif-i{font-size:1.04em;letter-spacing:-.015em}
 
-  h2{
-    font-size:clamp(1.5rem,3vw,2rem);
-    letter-spacing:-.025em;
-    font-weight:600;
-    margin-bottom:12px;
-  }
-
-  h3{font-size:1.02rem;font-weight:600;letter-spacing:-.011em}
-
-  .lede{
-    font-size:1.06rem;
-    color:var(--fg-muted);
-    max-width:62ch;
-    font-weight:300;
-  }
+  .lede{font-size:1.04rem;color:var(--muted);max-width:50ch;font-weight:300}
   .lede strong{color:var(--fg);font-weight:500}
 
-  .section-intro{color:var(--fg-muted);max-width:60ch;font-weight:300;margin-bottom:44px}
-
-  /* ---------- hero ---------- */
-  .hero{padding:104px 0 80px;border-bottom:1px solid var(--border-soft)}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-
+  .hero-btns{display:flex;gap:11px;flex-wrap:wrap;margin-top:34px}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
-    padding:10px 18px;border-radius:var(--radius);
-    font-size:.875rem;font-weight:500;
-    border:1px solid var(--border);
-    transition:background .18s,border-color .18s,transform .18s;
+    padding:11px 20px;border-radius:999px;
+    font-size:.85rem;font-weight:500;
+    border:1px solid var(--border-2);color:var(--fg);
+    transition:transform .18s,border-color .18s,background .18s,box-shadow .18s;
   }
-  .btn-primary{background:var(--fg);color:#171717;border-color:var(--fg)}
-  .btn-primary:hover{transform:translateY(-1px);background:#fff}
-  .btn-ghost{color:var(--fg-muted)}
-  .btn-ghost:hover{color:var(--fg);border-color:#4d4d4d;background:rgba(255,255,255,.03)}
+  .btn:hover{transform:translateY(-1px);border-color:#404040;background:rgba(255,255,255,.04)}
+  .btn-mint{background:var(--mint);color:#05130d;border-color:var(--mint)}
+  .btn-mint:hover{background:#7df0c4;border-color:#7df0c4;box-shadow:0 8px 24px rgba(110,231,183,.26)}
 
-  /* ---------- stats ---------- */
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:1px;
-    background:var(--border-soft);
-    border:1px solid var(--border-soft);
-    border-radius:var(--radius);
-    overflow:hidden;
-    margin-top:56px;
+  /* ---- orbital ---- */
+  .orbital{position:relative;aspect-ratio:1;max-width:420px;margin-left:auto;width:100%}
+  .orbital svg{width:100%;height:100%;display:block}
+  .ring{fill:none;stroke:#1f1f1f;stroke-width:1}
+  .ring-lit{fill:none;stroke:rgba(110,231,183,.34);stroke-width:1;stroke-dasharray:3 7}
+  .core{fill:var(--mint)}
+  .orb-label{
+    position:absolute;
+    font-family:'JetBrains Mono',monospace;font-size:.6rem;
+    letter-spacing:.1em;text-transform:uppercase;
+    background:rgba(20,20,20,.9);border:1px solid var(--border-2);
+    padding:5px 10px;border-radius:999px;color:var(--muted);
+    backdrop-filter:blur(8px);white-space:nowrap;
   }
-  .stat{background:var(--bg);padding:22px 20px}
-  .stat .n{font-size:1.5rem;font-weight:600;letter-spacing:-.025em;display:block}
-  .stat .l{font-size:.78rem;color:var(--fg-dim);margin-top:3px;line-height:1.45}
+  .orb-label.a{top:11%;right:2%}
+  .orb-label.b{bottom:19%;left:-2%}
+  .orb-label.c{bottom:4%;right:14%;color:var(--mint);border-color:rgba(110,231,183,.3)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes pulse{0%,100%{opacity:.85;r:7}50%{opacity:1;r:9}}
+  .rot{transform-origin:200px 200px;animation:spin 34s linear infinite}
+  .rot-r{transform-origin:200px 200px;animation:spin 48s linear infinite reverse}
+  .core{animation:pulse 2.8s ease-in-out infinite}
+  @media(prefers-reduced-motion:reduce){.rot,.rot-r,.core{animation:none}}
 
-  /* ---------- cards ---------- */
-  .grid{display:grid;gap:16px}
-  .grid-2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+  /* ================= STRIP ================= */
+  .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2)}
+  .strip .wrap{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+    gap:30px;padding-top:26px;padding-bottom:26px;
+  }
+  .strip-item .n{font-size:1.32rem;font-weight:600;letter-spacing:-.025em;display:block}
+  .strip-item .n em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--mint);font-weight:400}
+  .strip-item .l{font-size:.75rem;color:var(--dim);margin-top:2px;line-height:1.45}
+
+  /* ================= SECTIONS ================= */
+  section{padding:92px 0}
+  .sec-head{margin-bottom:46px;max-width:60ch}
+  h2{font-size:clamp(1.75rem,3.6vw,2.6rem);line-height:1.13;letter-spacing:-.028em;font-weight:600;margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-weight:300;font-size:.97rem}
+
+  /* ---- cards ---- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .cards .span2{grid-column:span 2}
+  @media(max-width:940px){.cards{grid-template-columns:1fr 1fr}.cards .span2{grid-column:span 2}}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}.cards .span2{grid-column:span 1}}
 
   .card{
-    background:var(--bg-elev);
-    border:1px solid var(--border-soft);
-    border-radius:var(--radius);
-    padding:26px;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+    padding:22px;display:flex;flex-direction:column;gap:14px;
     transition:border-color .2s,transform .2s;
   }
-  .card:hover{border-color:var(--border);transform:translateY(-2px)}
-  .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
-  .card p{color:var(--fg-muted);font-size:.9rem;font-weight:300}
-  .card p + p{margin-top:10px}
-
-  .tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.68rem;letter-spacing:.06em;
-    padding:4px 9px;border-radius:999px;
-    border:1px solid var(--border);
-    color:var(--fg-muted);
-    white-space:nowrap;
-    flex-shrink:0;
-  }
-  .tag-paid{border-color:#4a4a4a;background:rgba(255,255,255,.06);color:var(--fg)}
-
-  .meta{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.74rem;color:var(--fg-dim);
-    margin-top:14px;padding-top:14px;
-    border-top:1px solid var(--border-soft);
+  .card:hover{border-color:var(--border-2);transform:translateY(-2px)}
+  .card h3{font-size:.97rem;font-weight:600;letter-spacing:-.012em}
+  .card p{color:var(--muted);font-size:.845rem;font-weight:300;line-height:1.55}
+  .card-foot{
+    margin-top:auto;padding-top:13px;border-top:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace;font-size:.66rem;
+    color:var(--dim);letter-spacing:.05em;
   }
 
-  /* ---------- timeline ---------- */
-  .tl{display:grid;gap:0}
+  /* ---- mini mockups ---- */
+  .mock{
+    background:var(--bg);border:1px solid var(--border);border-radius:10px;
+    padding:13px;font-size:.7rem;
+  }
+  .mock-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 0}
+  .mock-row + .mock-row{border-top:1px solid #1c1c1c}
+  .mock-k{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.64rem}
+  .mock-v{color:var(--muted);font-size:.68rem}
+  .pill{
+    font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.06em;
+    padding:3px 8px;border-radius:999px;border:1px solid var(--border-2);color:var(--muted);
+  }
+  .pill-mint{background:rgba(110,231,183,.12);border-color:rgba(110,231,183,.32);color:var(--mint)}
+  .pill-amber{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:#fcd34d}
+  .pill-dim{opacity:.55}
+
+  .bar{height:5px;border-radius:999px;background:#1f1f1f;overflow:hidden;margin-top:7px}
+  .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--mint-2),var(--mint))}
+
+  .steps{display:flex;flex-direction:column;gap:0}
+  .step{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:.68rem;color:var(--dim)}
+  .step .dot{width:6px;height:6px;border-radius:50%;background:#2e2e2e;flex-shrink:0}
+  .step.done .dot{background:var(--mint);box-shadow:0 0 8px rgba(110,231,183,.6)}
+  .step.done{color:var(--muted)}
+  .step .when{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.6rem;opacity:.7}
+
+  .letter-mock{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#fff;position:relative}
+  .letter-mock img{display:block;width:100%;height:158px;object-fit:cover;object-position:top center}
+  .letter-mock::after{
+    content:'View full letter →';position:absolute;inset:auto 0 0 0;
+    background:linear-gradient(transparent,rgba(10,10,10,.94));
+    color:var(--mint);font-family:'JetBrains Mono',monospace;font-size:.6rem;
+    letter-spacing:.08em;padding:22px 12px 9px;
+  }
+
+  /* ================= CREAM ================= */
+  .cream{background:var(--cream);color:var(--cream-fg)}
+  .cream .sec-head p,.cream .lede{color:var(--cream-muted)}
+  .statement{
+    font-size:clamp(1.7rem,4.3vw,3.1rem);line-height:1.16;letter-spacing:-.027em;
+    font-weight:500;max-width:19ch;
+  }
+  .statement .serif-i{color:#0f6b4a}
+  .cream-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:start}
+  @media(max-width:860px){.cream-grid{grid-template-columns:1fr;gap:34px}}
+  .cream-side{
+    font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;color:#8d887e;writing-mode:vertical-rl;
+  }
+  @media(max-width:860px){.cream-side{writing-mode:horizontal-tb}}
+
+  /* ---- timeline ---- */
+  .tl{margin-top:58px}
   .tl-item{
-    display:grid;grid-template-columns:132px 1fr;gap:28px;
-    padding:24px 0;border-top:1px solid var(--border-soft);
+    display:grid;grid-template-columns:124px 1fr auto;gap:26px;
+    padding:20px 0;border-top:1px solid rgba(20,20,20,.13);align-items:baseline;
   }
-  .tl-item:last-child{border-bottom:1px solid var(--border-soft)}
-  .tl-when{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--fg-dim);padding-top:2px}
-  .tl-org{color:var(--fg-muted);font-size:.85rem;margin:2px 0 10px}
-  .tl-item ul{list-style:none;display:grid;gap:6px}
-  .tl-item li{
-    color:var(--fg-muted);font-size:.89rem;font-weight:300;
-    padding-left:16px;position:relative;
-  }
-  .tl-item li::before{content:'';position:absolute;left:0;top:.68em;width:5px;height:1px;background:#595959}
-  @media(max-width:680px){
-    .tl-item{grid-template-columns:1fr;gap:8px}
-    .tl-when{padding-top:0}
+  .tl-item:last-child{border-bottom:1px solid rgba(20,20,20,.13)}
+  .tl-when{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#8d887e}
+  .tl-role{font-weight:600;font-size:1rem;letter-spacing:-.015em}
+  .tl-org{color:var(--cream-muted);font-size:.85rem;margin-top:2px}
+  .tl-tag{font-family:'JetBrains Mono',monospace;font-size:.63rem;color:#8d887e;text-align:right;white-space:nowrap}
+  @media(max-width:720px){
+    .tl-item{grid-template-columns:1fr;gap:4px}
+    .tl-tag{text-align:left}
   }
 
-  /* ---------- project ---------- */
+  /* ================= PROJECT ================= */
   .project{
-    background:var(--bg-elev);
-    border:1px solid var(--border-soft);
-    border-radius:var(--radius);
-    overflow:hidden;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+    overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;
   }
-  .project-body{padding:30px}
-  .project h3{font-size:1.25rem;letter-spacing:-.02em}
-  .project .role-note{
-    margin-top:18px;padding:14px 16px;
-    background:rgba(255,255,255,.035);
-    border:1px solid var(--border-soft);
-    border-radius:var(--radius);
-    font-size:.855rem;color:var(--fg-muted);font-weight:300;
+  @media(max-width:880px){.project{grid-template-columns:1fr}}
+  .project-body{padding:34px}
+  .project h3{font-size:1.4rem;letter-spacing:-.024em;font-weight:600;margin-bottom:12px}
+  .project > .project-visual{
+    background:var(--bg-2);border-left:1px solid var(--border);
+    padding:30px;display:flex;align-items:center;justify-content:center;
   }
-  .project .role-note strong{color:var(--fg);font-weight:500}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  @media(max-width:880px){.project > .project-visual{border-left:none;border-top:1px solid var(--border)}}
+
+  .outs{display:grid;gap:9px;margin-top:20px}
+  .outs div{font-size:.875rem;color:var(--muted);font-weight:300;padding-left:19px;position:relative;line-height:1.55}
+  .outs div::before{content:'→';position:absolute;left:0;color:var(--mint);font-size:.78rem}
+
+  .note{
+    margin-top:22px;padding:15px 17px;border-radius:10px;
+    background:rgba(110,231,183,.055);border:1px solid rgba(110,231,183,.18);
+    font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.55;
+  }
+  .note strong{color:var(--mint);font-weight:500}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
   .chip{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.68rem;padding:4px 9px;
-    border:1px solid var(--border-soft);border-radius:var(--radius);
-    color:var(--fg-dim);
+    font-family:'JetBrains Mono',monospace;font-size:.64rem;padding:4px 9px;
+    border:1px solid var(--border);border-radius:7px;color:var(--dim);
   }
 
-  .out-list{display:grid;gap:9px;margin-top:16px}
-  .out-list div{
-    font-size:.875rem;color:var(--fg-muted);font-weight:300;
-    padding-left:18px;position:relative;
-  }
-  .out-list div::before{
-    content:'→';position:absolute;left:0;color:var(--fg-dim);font-size:.8rem;
+  /* grading mock */
+  .grade-mock{width:100%;max-width:290px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:17px}
+  .grade-top{display:flex;align-items:center;gap:11px;margin-bottom:15px}
+  .grade-badge{
+    font-size:.72rem;font-weight:600;padding:5px 13px;border-radius:999px;
+    background:rgba(110,231,183,.14);color:var(--mint);border:1px solid rgba(110,231,183,.3);
   }
 
-  /* ---------- letter ---------- */
-  .letter{
-    display:block;border:1px solid var(--border-soft);border-radius:var(--radius);
-    overflow:hidden;background:#fff;transition:border-color .2s;
+  /* ================= CTA ================= */
+  .cta{text-align:center;padding:112px 0;position:relative;overflow:hidden}
+  .cta::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(640px circle at 50% 72%, rgba(110,231,183,.13), transparent 66%);
   }
-  .letter:hover{border-color:#4d4d4d}
-  .letter img{display:block;width:100%;height:auto}
-
-  /* ---------- skills ---------- */
-  .skillcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
-  .skillcols ul{list-style:none;display:grid;gap:7px;margin-top:14px}
-  .skillcols li{font-size:.875rem;color:var(--fg-muted);font-weight:300}
-
-  /* ---------- contact ---------- */
-  .contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .cta .marker{justify-content:center}
+  .cta h2{font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.033em;margin-bottom:18px}
+  .cta p{color:var(--muted);font-weight:300;max-width:46ch;margin:0 auto 32px}
+  .cta-btns{display:flex;gap:11px;justify-content:center;flex-wrap:wrap}
 
   footer{
-    padding:34px 0;
-    font-size:.8rem;color:var(--fg-dim);
-    border-top:1px solid var(--border-soft);
-    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    border-top:1px solid var(--border);padding:28px 0;
+    font-size:.76rem;color:var(--dim);
   }
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
-  /* ---------- reveal ---------- */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  /* ================= REVEAL ================= */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -261,340 +312,388 @@
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a href="#top" class="brand">Marcelo Noguera <span>/ security &amp; applied AI</span></a>
-    <div class="navlinks">
+<div class="navbar">
+  <div class="nav-pill">
+    <a href="#top" class="nav-brand"><span class="nav-dot"></span>Marcelo Noguera</a>
+    <div class="nav-links">
       <a href="#research">Research</a>
+      <a href="#work">Work</a>
       <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
       <a href="#speaking">Speaking</a>
-      <a href="#contact">Contact</a>
     </div>
+    <a href="#contact" class="nav-cta">Get in touch</a>
   </div>
-</nav>
+</div>
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">Managua, Nicaragua — open to remote LATAM</div>
-    <h1>Offensive security engineer building applied AI systems.</h1>
-    <p class="lede">
-      Seven years finding, proving and documenting vulnerabilities across banking and critical
-      infrastructure in Central and South America. <strong>Recognized by NASA's Vulnerability
-      Disclosure Program</strong> and <strong>awarded a bounty by Anduril Industries</strong>.
-      Today I apply the same adversarial rigor to multimodal AI — building systems that grade,
-      classify and price real-world inputs, and testing where they fail.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#projects">View projects</a>
-      <a class="btn btn-ghost" href="assets/Marcelo-Noguera-CV.pdf" target="_blank" rel="noopener">Download CV</a>
-      <a class="btn btn-ghost" href="mailto:marceloplata29@gmail.com">Get in touch</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="marker">Offensive security · applied AI</div>
+      <h1>Breaking systems<br />with <span class="serif-i mint">absolute</span> <span class="serif-i">precision.</span></h1>
+      <p class="lede">
+        Seven years finding, proving and documenting vulnerabilities across banking and critical
+        infrastructure in Latin America. <strong>Recognized by NASA's Vulnerability Disclosure
+        Program</strong> and <strong>awarded a bounty by Anduril Industries</strong> — now applying
+        the same adversarial rigor to multimodal AI systems.
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-mint" href="#projects">View projects</a>
+        <a class="btn" href="assets/Marcelo-Noguera-CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+      </div>
     </div>
 
-    <div class="stats">
-      <div class="stat"><span class="n">7+</span><span class="l">Years in offensive security</span></div>
-      <div class="stat"><span class="n">NASA</span><span class="l">VDP recognition letter, 2026</span></div>
-      <div class="stat"><span class="n">$215</span><span class="l">Bounty paid by Anduril Industries</span></div>
-      <div class="stat"><span class="n">4</span><span class="l">Bug bounty programs engaged</span></div>
-      <div class="stat"><span class="n">2</span><span class="l">International conference stages</span></div>
+    <div class="orbital">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="ring" cx="200" cy="200" r="178" />
+        <circle class="ring" cx="200" cy="200" r="132" />
+        <circle class="ring" cx="200" cy="200" r="86" />
+        <g class="rot">
+          <circle class="ring-lit" cx="200" cy="200" r="178" />
+          <circle cx="378" cy="200" r="3.5" fill="#6ee7b7" opacity=".85" />
+        </g>
+        <g class="rot-r">
+          <circle class="ring-lit" cx="200" cy="200" r="132" />
+          <circle cx="68" cy="200" r="2.8" fill="#6ee7b7" opacity=".6" />
+        </g>
+        <circle cx="200" cy="200" r="30" fill="rgba(110,231,183,.07)" />
+        <circle cx="200" cy="200" r="18" fill="rgba(110,231,183,.13)" />
+        <circle class="core" cx="200" cy="200" r="7.5" />
+      </svg>
+      <span class="orb-label a">NASA VDP</span>
+      <span class="orb-label b">HackerOne</span>
+      <span class="orb-label c">$215 awarded</span>
     </div>
   </div>
 </header>
 
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-item"><span class="n">7<em>+</em></span><span class="l">Years in offensive security</span></div>
+    <div class="strip-item"><span class="n">NASA</span><span class="l">VDP recognition letter, 2026</span></div>
+    <div class="strip-item"><span class="n"><em>$</em>215</span><span class="l">Bounty paid by Anduril Industries</span></div>
+    <div class="strip-item"><span class="n">4</span><span class="l">Bug bounty programs engaged</span></div>
+    <div class="strip-item"><span class="n">2</span><span class="l">International conference stages</span></div>
+  </div>
+</div>
+
 <section id="research">
   <div class="wrap reveal">
-    <div class="eyebrow">01 — Security research</div>
-    <h2>Recognition &amp; disclosed findings</h2>
-    <p class="section-intro">
-      Independent research reported through official disclosure programs. Technical detail is
-      intentionally omitted; outcomes and program responses are shown as reported.
-    </p>
+    <div class="sec-head">
+      <div class="marker">01 — Security research</div>
+      <h2>Recognition and disclosed findings.</h2>
+      <p>Independent research reported through official disclosure programs. Technical detail is
+         intentionally withheld; outcomes and program responses are shown as reported.</p>
+    </div>
 
-    <div class="grid grid-2">
-      <div class="card">
-        <div class="card-head">
+    <div class="cards">
+
+      <div class="card span2">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+          <h3>Anduril Industries — authentication bypass</h3>
+          <span class="pill pill-mint">$215 · paid</span>
+        </div>
+        <p>
+          Authentication bypass on a public Anduril host caused by an HTTP method validation flaw
+          in an edge function. Triaged as informative at first — I contested the assessment with
+          additional impact analysis, the report was reopened, and the program awarded a bounty.
+        </p>
+        <div class="mock">
+          <div class="steps">
+            <div class="step done"><span class="dot"></span>Report submitted<span class="when">14 Jul</span></div>
+            <div class="step done"><span class="dot"></span>Closed — informative<span class="when">18 Jul</span></div>
+            <div class="step done"><span class="dot"></span>Reopened after rebuttal<span class="when">04 Aug</span></div>
+            <div class="step done"><span class="dot"></span>Bounty awarded — $215<span class="when">14 Aug</span></div>
+          </div>
+        </div>
+        <p>
+          Two further reports to the same program — an exposed VPN management interface with
+          unauthenticated endpoints, and an unrestricted authentication brute-force path — were
+          confirmed as valid issues already known to the program.
+        </p>
+        <div class="card-foot">HACKERONE · REPORT #3862318 · 2026</div>
+      </div>
+
+      <a class="card" href="assets/nasa-vdp-letter.jpeg" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <h3>NASA — Vulnerability Disclosure Program</h3>
-          <span class="tag">Aug 2026</span>
+          <span class="pill">2026</span>
+        </div>
+        <div class="letter-mock">
+          <img src="assets/nasa-vdp-letter.jpeg" alt="NASA Vulnerability Disclosure Program letter of appreciation addressed to Marcelo Noguera, signed by the Senior Agency Information Security Officer, dated August 20, 2026." loading="lazy" />
         </div>
         <p>
           Letter of appreciation signed by the Senior Agency Information Security Officer, NASA
-          Office of the Chief Information Officer, recognizing a vulnerability identified and
-          responsibly reported under NASA's VDP.
+          Office of the Chief Information Officer.
         </p>
-        <p>
-          "Your reporting has facilitated NASA's awareness of otherwise unknown vulnerabilities
-          and helped us protect the integrity and availability of NASA information."
-        </p>
-        <div class="meta">NASA OCIO · VDP · letter dated 2026-08-20</div>
-      </div>
+        <div class="card-foot">NASA OCIO · 2026-08-20</div>
+      </a>
 
       <div class="card">
-        <div class="card-head">
-          <h3>Anduril Industries — Bug Bounty</h3>
-          <span class="tag tag-paid">$215 · paid</span>
+        <h3>Disclosure programs engaged</h3>
+        <div class="mock">
+          <div class="mock-row"><span class="mock-k">ANDURIL</span><span class="pill pill-mint">bountied</span></div>
+          <div class="mock-row"><span class="mock-k">PLAID</span><span class="pill">triaged</span></div>
+          <div class="mock-row"><span class="mock-k">GITLAB</span><span class="pill pill-dim">submitted</span></div>
+          <div class="mock-row"><span class="mock-k">TRIP.COM</span><span class="pill pill-dim">submitted</span></div>
         </div>
         <p>
-          Authentication bypass on a public Anduril host, caused by an HTTP method validation flaw
-          in an edge function. Initially triaged as informative — I contested the assessment with
-          additional impact analysis, the report was reopened and the program awarded a bounty.
-        </p>
-        <p>
-          Two further reports to the same program (an exposed VPN management interface with
-          unauthenticated endpoints, and an unrestricted authentication brute-force path) were
-          confirmed as valid issues already known to the program.
-        </p>
-        <div class="meta">HackerOne · report #3862318 · awarded 2026-08-14</div>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <h3>Additional disclosure programs</h3>
-          <span class="tag">2026</span>
-        </div>
-        <p>
-          Active researcher across GitLab, Plaid and Trip.com programs on HackerOne. On a Plaid
-          submission the triage team explicitly noted the "exceptional documentation quality"
+          On a Plaid submission the triage team explicitly noted the
+          <em style="color:var(--fg);font-style:normal">"exceptional documentation quality"</em>
           of the report.
         </p>
-        <p>
-          Report writing is the part of this work I take most seriously: reproducible steps,
-          honest severity, and impact a defender can act on.
-        </p>
-        <div class="meta">HackerOne · researcher since 2021</div>
+        <div class="card-foot">HACKERONE · RESEARCHER SINCE 2021</div>
       </div>
 
-      <a class="letter" href="assets/nasa-vdp-letter.jpeg" target="_blank" rel="noopener"
-         title="Open the full NASA VDP letter">
-        <img src="assets/nasa-vdp-letter.jpeg" alt="NASA Vulnerability Disclosure Program letter of appreciation addressed to Marcelo Noguera, signed by the Senior Agency Information Security Officer, dated August 20, 2026." loading="lazy" />
-      </a>
+      <div class="card">
+        <h3>How I report</h3>
+        <p>
+          Reproducible steps, honest severity, and impact a defender can act on. The write-up is
+          the deliverable — a finding nobody can reproduce or prioritise is not a finding.
+        </p>
+        <div class="mock">
+          <div class="mock-row"><span class="mock-k">REPRODUCIBLE</span><span class="mock-v">step-by-step</span></div>
+          <div class="mock-row"><span class="mock-k">SEVERITY</span><span class="mock-v">argued, not asserted</span></div>
+          <div class="mock-row"><span class="mock-k">IMPACT</span><span class="mock-v">business-level</span></div>
+        </div>
+        <div class="card-foot">METHODOLOGY</div>
+      </div>
+
+      <div class="card">
+        <h3>Adversarial thinking, applied to models</h3>
+        <p>
+          The instinct that finds an auth bypass is the same one that asks where a grading model
+          quietly fails: edge inputs, low-confidence cases, and the gap between a benchmark and
+          the real distribution.
+        </p>
+        <div class="card-foot">WHY SECURITY → ML</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cream">
+  <div class="wrap reveal">
+    <div class="cream-grid">
+      <div class="cream-side">Track record</div>
+      <div>
+        <p class="statement">
+          Seven years of finding what others miss — across
+          <span class="serif-i">banking</span>, critical infrastructure and
+          <span class="serif-i">national</span> institutions.
+        </p>
+
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-when">2025 — Present</div>
+            <div>
+              <div class="tl-role">Senior Cybersecurity Specialist</div>
+              <div class="tl-org">Lead security validation across all enterprise technology applications; own technical assessments against regulatory requirements.</div>
+            </div>
+            <div class="tl-tag">National Banking Entity</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-when">2024 — 2025</div>
+            <div>
+              <div class="tl-role">Cybersecurity Engineer</div>
+              <div class="tl-org">Recurring penetration tests against critical infrastructure; drove continuous improvement of the security practice.</div>
+            </div>
+            <div class="tl-tag">Nicaragua Sugar Estates</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-when">2022 — 2024</div>
+            <div>
+              <div class="tl-role">Offensive Cybersecurity Consultant</div>
+              <div class="tl-org">Identified, safely exploited and documented vulnerabilities in banking systems; technical and executive reporting.</div>
+            </div>
+            <div class="tl-tag">Devel Security</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-when">2019 — 2022</div>
+            <div>
+              <div class="tl-role">Cybersecurity Consultant</div>
+              <div class="tl-org">Vulnerability assessments for corporate clients; technical leadership for a team of four analysts.</div>
+            </div>
+            <div class="tl-tag">Numu Cibersecurity</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="wrap reveal">
-    <div class="eyebrow">02 — Applied AI</div>
-    <h2>Projects</h2>
-    <p class="section-intro">
-      Systems I designed, built and deployed end to end — from the model contract to the
-      container running in production.
-    </p>
+    <div class="sec-head">
+      <div class="marker">02 — Applied AI</div>
+      <h2>Systems I built <span class="serif-i mint">end to end.</span></h2>
+      <p>From the model contract to the container running in production.</p>
+    </div>
 
     <div class="project">
       <div class="project-body">
-        <div class="card-head">
-          <h3>Device Condition Grader</h3>
-          <span class="tag tag-paid">live</span>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:4px">
+          <span class="pill pill-mint">live</span>
+          <span class="pill">multimodal</span>
         </div>
-        <p style="color:var(--fg-muted);font-weight:300;font-size:.93rem">
-          A multimodal grading service for used electronics. Upload a photo of a phone, laptop or
-          tablet and the system returns a physical condition grade, a confidence score, the
-          specific defects and positives it detected, and an estimated trade-in price band.
+        <h3>Device Condition Grader</h3>
+        <p style="color:var(--muted);font-weight:300;font-size:.93rem">
+          A grading service for used electronics. Upload a photo of a phone, laptop or tablet and
+          the system returns a physical condition grade, a confidence score, the specific defects
+          and positives detected, and an estimated trade-in price band.
         </p>
 
-        <div class="out-list">
-          <div>Condition taxonomy of four grades — Flawless / Good / Used / Damaged — with written criteria the model is held to, rather than free-form description.</div>
+        <div class="outs">
+          <div>A four-grade condition taxonomy — Flawless / Good / Used / Damaged — with written criteria the model is held to, rather than free-form description.</div>
           <div>Strict structured output: the vision model is constrained to a JSON contract, validated server-side before it can reach the pricing layer.</div>
-          <div>Device recognition — type, brand and model inferred from the image and used to select the right pricing matrix.</div>
-          <div>Deployed as a container on Railway behind a FastAPI service, with a static front end served from GitHub Pages against the same API.</div>
+          <div>Device recognition — type, brand and model inferred from the image and used to select the matching pricing matrix.</div>
+          <div>Containerised FastAPI service on Railway, with a static front end served from GitHub Pages against the same API.</div>
         </div>
 
-        <div class="role-note">
-          <strong>Why this project:</strong> it is a working, deployed implementation of
-          photo-based condition grading and device recognition — the exact problem shape of
-          trade-in and recommerce platforms. Built end to end in a single session using an
-          AI coding agent as the primary development tool.
+        <div class="note">
+          <strong>Why it matters:</strong> a working, deployed implementation of photo-based
+          condition grading and device recognition — the exact problem shape of trade-in and
+          recommerce platforms. Built end to end using an AI coding agent as the primary
+          development tool.
         </div>
 
         <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">FastAPI</span>
-          <span class="chip">Multimodal LLM</span>
-          <span class="chip">Structured outputs</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Railway</span>
-          <span class="chip">GitHub Pages</span>
+          <span class="chip">Python</span><span class="chip">FastAPI</span>
+          <span class="chip">Multimodal LLM</span><span class="chip">Structured outputs</span>
+          <span class="chip">Docker</span><span class="chip">Railway</span>
         </div>
 
-        <div class="hero-actions" style="margin-top:22px">
-          <a class="btn btn-primary" href="https://condition-grader-production.up.railway.app" target="_blank" rel="noopener">Live demo</a>
-          <a class="btn btn-ghost" href="https://github.com/MarceloNoguera/condition-grader" target="_blank" rel="noopener">Source code</a>
+        <div class="hero-btns" style="margin-top:24px">
+          <a class="btn btn-mint" href="https://condition-grader-production.up.railway.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="btn" href="https://github.com/MarceloNoguera/condition-grader" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </div>
+
+      <div class="project-visual">
+        <div class="grade-mock">
+          <div class="grade-top">
+            <span class="grade-badge">Good</span>
+            <div style="flex:1">
+              <div style="font-size:.6rem;color:var(--dim);font-family:'JetBrains Mono',monospace;letter-spacing:.1em">CONFIDENCE</div>
+              <div class="bar"><i style="width:88%"></i></div>
+            </div>
+            <span class="mono" style="font-size:.78rem">88%</span>
+          </div>
+          <div class="mock">
+            <div class="mock-row"><span class="mock-k">TYPE</span><span class="mock-v">Smartphone</span></div>
+            <div class="mock-row"><span class="mock-k">BRAND</span><span class="mock-v">Apple</span></div>
+            <div class="mock-row"><span class="mock-k">MODEL</span><span class="mock-v">iPhone 14</span></div>
+            <div class="mock-row"><span class="mock-k">ISSUES</span><span class="mock-v">1 detected</span></div>
+          </div>
+          <div style="margin-top:12px;padding:12px;border:1px solid rgba(110,231,183,.22);background:rgba(110,231,183,.06);border-radius:10px;text-align:center">
+            <div style="font-size:.58rem;color:var(--dim);font-family:'JetBrains Mono',monospace;letter-spacing:.12em">ESTIMATED VALUE</div>
+            <div class="mint" style="font-size:1.3rem;font-weight:600;letter-spacing:-.02em;margin-top:3px">$150 – $220</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="work">
   <div class="wrap reveal">
-    <div class="eyebrow">03 — Track record</div>
-    <h2>Experience</h2>
-    <p class="section-intro">
-      Offensive security, technology risk and security control validation across financial
-      institutions and critical corporate environments.
-    </p>
-
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-when">2025 — Present</div>
-        <div>
-          <h3>Senior Cybersecurity Specialist</h3>
-          <div class="tl-org">National Banking Entity</div>
-          <ul>
-            <li>Lead security validation across all enterprise technology applications.</li>
-            <li>Own technical security assessments against regulatory and industry requirements.</li>
-            <li>Continuously assess security controls and manage technology risk posture.</li>
-            <li>Partner with technical and business teams to remediate critical findings.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-when">2024 — 2025</div>
-        <div>
-          <h3>Cybersecurity Engineer</h3>
-          <div class="tl-org">Nicaragua Sugar Estates Limited</div>
-          <ul>
-            <li>Drove continuous improvement across the organization's security practice.</li>
-            <li>Ran recurring penetration tests against critical infrastructure and systems.</li>
-            <li>Identified vulnerabilities proactively and supported remediation.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-when">2022 — 2024</div>
-        <div>
-          <h3>Offensive Cybersecurity Consultant</h3>
-          <div class="tl-org">Devel Security</div>
-          <ul>
-            <li>Identified, safely exploited and documented vulnerabilities in banking systems.</li>
-            <li>Produced technical and executive reporting focused on risk and remediation.</li>
-            <li>Delivered offensive engagements to professional and industry standards.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-when">2019 — 2022</div>
-        <div>
-          <h3>Cybersecurity Consultant</h3>
-          <div class="tl-org">Numu Cibersecurity</div>
-          <ul>
-            <li>Delivered vulnerability assessments and security testing for corporate clients.</li>
-            <li>Provided technical leadership for a team of four analysts.</li>
-            <li>Helped define assessment methodologies and internal best practices.</li>
-          </ul>
-        </div>
-      </div>
+    <div class="sec-head">
+      <div class="marker">03 — Capabilities</div>
+      <h2>What I work with.</h2>
     </div>
-  </div>
-</section>
 
-<section id="capabilities">
-  <div class="wrap reveal">
-    <div class="eyebrow">04 — Capabilities</div>
-    <h2>What I work with</h2>
-
-    <div class="skillcols">
+    <div class="cards">
       <div class="card">
         <h3>Applied AI engineering</h3>
-        <ul>
-          <li>Multimodal LLM APIs (vision + text)</li>
-          <li>Prompt engineering &amp; structured JSON outputs</li>
-          <li>Grading taxonomies and evaluation criteria design</li>
-          <li>Python · FastAPI · containerized model serving</li>
-          <li>AI-native development with coding agents (Claude Code)</li>
-          <li>Deployment on Railway, GitHub Pages, Docker</li>
-        </ul>
+        <p>
+          Multimodal LLM APIs · prompt engineering and structured JSON outputs · grading taxonomy
+          and evaluation criteria design · Python and FastAPI · containerised serving ·
+          AI-native development with coding agents.
+        </p>
+        <div class="card-foot">BUILD</div>
       </div>
 
       <div class="card">
         <h3>Offensive security</h3>
-        <ul>
-          <li>Penetration testing &amp; red team engagements</li>
-          <li>Vulnerability assessment &amp; security control validation</li>
-          <li>Web, API and mobile application security</li>
-          <li>Coordinated vulnerability disclosure &amp; bug bounty</li>
-          <li>Digital forensics (basic to intermediate)</li>
-          <li>Managed security services / SOC</li>
-        </ul>
+        <p>
+          Penetration testing and red team engagements · vulnerability assessment and security
+          control validation · web, API and mobile application security · coordinated
+          vulnerability disclosure · digital forensics · SOC operations.
+        </p>
+        <div class="card-foot">BREAK</div>
       </div>
 
       <div class="card">
         <h3>Education</h3>
-        <ul>
-          <li><strong style="color:var(--fg);font-weight:500">Cisco Academy</strong> — Ethical Hacker, 2026</li>
-          <li><strong style="color:var(--fg);font-weight:500">Deloitte Academy</strong> — Ethical Hacking, Managed Security Services (SOC), Digital Forensics, 2019–2023</li>
-          <li><strong style="color:var(--fg);font-weight:500">Universidad Centroamericana (UCA)</strong> — Systems Engineering, 2017–2022</li>
-        </ul>
+        <div class="mock">
+          <div class="mock-row"><span class="mock-v">Ethical Hacker</span><span class="mock-k">CISCO · 2026</span></div>
+          <div class="mock-row"><span class="mock-v">Ethical Hacking · SOC · Forensics</span><span class="mock-k">DELOITTE · 19–23</span></div>
+          <div class="mock-row"><span class="mock-v">Systems Engineering</span><span class="mock-k">UCA · 17–22</span></div>
+        </div>
+        <div class="card-foot">CREDENTIALS</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="speaking">
+<section id="speaking" style="padding-top:0">
   <div class="wrap reveal">
-    <div class="eyebrow">05 — Outreach</div>
-    <h2>Speaking</h2>
-    <p class="section-intro">
-      I speak about ethical hacking, technology risk management and information security — to
-      technical audiences and to the general public.
-    </p>
+    <div class="sec-head">
+      <div class="marker">04 — Outreach</div>
+      <h2>Speaking.</h2>
+      <p>Ethical hacking, technology risk management and information security — for technical
+         audiences and the general public.</p>
+    </div>
 
-    <div class="grid grid-2">
+    <div class="cards">
       <div class="card">
         <h3>Navaja Negra</h3>
         <p>Panelist at one of Spain's long-running offensive security conferences.</p>
-        <div class="meta">Albacete, Spain</div>
+        <div class="card-foot">ALBACETE, SPAIN</div>
       </div>
       <div class="card">
         <h3>Cybersecurity Week — BID Lab</h3>
         <p>Panelist at the Inter-American Development Bank Lab's regional cybersecurity forum.</p>
-        <div class="meta">Panama</div>
+        <div class="card-foot">PANAMA</div>
       </div>
       <div class="card">
         <h3>VOS TV — national television</h3>
-        <p>Recurring guest on national television programs covering cybersecurity and public awareness.</p>
-        <div class="meta">Nicaragua</div>
+        <p>Recurring guest on national television covering cybersecurity and public awareness.</p>
+        <div class="card-foot">NICARAGUA</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section class="cta" id="contact">
   <div class="wrap reveal">
-    <div class="eyebrow">06 — Contact</div>
-    <h2>Let's talk</h2>
-    <p class="lede">
-      Available for remote roles across LATAM. The fastest way to reach me is email.
-    </p>
-    <div class="contact-row">
-      <a class="btn btn-primary" href="mailto:marceloplata29@gmail.com">marceloplata29@gmail.com</a>
-      <a class="btn btn-ghost" href="https://github.com/MarceloNoguera" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn btn-ghost" href="assets/Marcelo-Noguera-CV.pdf" target="_blank" rel="noopener">Curriculum vitae</a>
+    <div class="marker">Open to remote LATAM roles</div>
+    <h2>Let's build something <span class="serif-i mint">resilient.</span></h2>
+    <p>Available for remote roles across Latin America. The fastest way to reach me is email.</p>
+    <div class="cta-btns">
+      <a class="btn btn-mint" href="mailto:marceloplata29@gmail.com">marceloplata29@gmail.com</a>
+      <a class="btn" href="https://github.com/MarceloNoguera" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="assets/Marcelo-Noguera-CV.pdf" target="_blank" rel="noopener">Curriculum vitae ↗</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+  <div class="wrap">
     <span>Marcelo Antonio Noguera Plata — Managua, Nicaragua</span>
-    <span>Built with an AI coding agent. Source on GitHub.</span>
+    <span>Built with an AI coding agent</span>
   </div>
 </footer>
 
 <script>
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
+  }, { threshold: 0.06, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 </script>
 
