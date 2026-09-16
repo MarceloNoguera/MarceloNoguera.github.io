@@ -166,23 +166,6 @@
 
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
 
-  /* app mockup */
-  .app{width:100%;max-width:300px;background:var(--bg);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:20px;box-shadow:0 10px 32px rgba(0,0,0,.4)}
-  .app-top{display:flex;align-items:center;gap:12px;margin-bottom:17px}
-  .app-grade{font-size:.8rem;font-weight:600;padding:6px 15px;border-radius:999px;background:var(--mint);color:var(--mint-ink)}
-  .kv{border-top:1px solid var(--border)}
-  .kv div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:.82rem;border-bottom:1px solid var(--border)}
-  .kv span:first-child{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.05em;align-self:center}
-  .kv span:last-child{color:var(--fg-2);font-weight:500}
-  .bar{height:6px;border-radius:999px;background:var(--border);overflow:hidden;margin-top:6px}
-  .bar i{display:block;height:100%;border-radius:999px;background:var(--green)}
-  .price{
-    margin-top:16px;padding:15px;border-radius:var(--r);text-align:center;
-    background:var(--green-50);border:1px solid rgba(94,201,138,.26);
-  }
-  .price b{display:block;font-family:Jost,sans-serif;font-size:1.45rem;font-weight:600;color:var(--green);letter-spacing:-.02em;margin-top:3px}
-  .lbl{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.11em;color:var(--dim);text-transform:uppercase}
-
   /* ---- recognition ---- */
   .rec{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   @media(max-width:860px){.rec{grid-template-columns:1fr}}
@@ -359,26 +342,9 @@
       </div>
 
       <div class="visual">
-        <div class="app">
-          <div class="app-top">
-            <span class="app-grade">Good</span>
-            <div style="flex:1">
-              <span class="lbl">Confidence</span>
-              <div class="bar"><i style="width:88%"></i></div>
-            </div>
-            <span class="mono" style="font-size:.86rem;font-weight:500">88%</span>
-          </div>
-          <div class="kv">
-            <div><span>TYPE</span><span>Smartphone</span></div>
-            <div><span>BRAND</span><span>Apple</span></div>
-            <div><span>MODEL</span><span>iPhone 14</span></div>
-            <div><span>ISSUES</span><span>1 detected</span></div>
-          </div>
-          <div class="price">
-            <span class="lbl">Estimated trade-in value</span>
-            <b>$150 – $220</b>
-          </div>
-        </div>
+        <a href="assets/condition-grader.png" target="_blank" rel="noopener" style="display:block;width:100%">
+          <img src="assets/condition-grader.png" alt="Device Condition Grader web app grading a Canon EOS M50 camera: Good condition, 74% confidence, type Camera, brand Canon, model EOS M50 (uncertain), estimated trade-in value $200-$380." style="width:100%;display:block;border-radius:var(--r-lg);border:1px solid var(--border-2);box-shadow:0 10px 32px rgba(0,0,0,.4)" loading="lazy" />
+        </a>
       </div>
     </div>
   </div>
