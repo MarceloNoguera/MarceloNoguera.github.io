@@ -166,44 +166,54 @@
 
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
 
-  /* ---- recognition ---- */
-  .rec{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  @media(max-width:860px){.rec{grid-template-columns:1fr}}
-  .rc{
-    border:1px solid var(--border);border-radius:var(--r-xl);padding:30px;background:var(--surface);
-    display:flex;flex-direction:column;gap:18px;transition:box-shadow .2s,transform .2s,border-color .2s;
+  /* ---- why me ---- */
+  .why{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+  @media(max-width:940px){.why{grid-template-columns:1fr;gap:44px}}
+  .why h2{margin-bottom:22px}
+  .why h2 .ghost{
+    color:transparent;-webkit-text-stroke:1px var(--green-btn);
+    -webkit-text-fill-color:transparent;
   }
-  .rc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.36);border-color:var(--border-2)}
-  .rc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
-  .rc h3{font-size:1.14rem}
-  .rc p{color:var(--muted);font-size:.92rem;font-weight:300;line-height:1.62}
-  .rc-foot{
-    margin-top:auto;padding-top:16px;border-top:1px solid var(--border);
-    font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim);letter-spacing:.05em;
-  }
+  .why-body > p{color:var(--muted);font-weight:300;font-size:1rem;line-height:1.66;max-width:56ch}
+  .why-body > p + p{margin-top:14px}
 
-  .letter{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);position:relative;background:#fff}
-  .letter img{display:block;width:100%;height:225px;object-fit:cover;object-position:top center}
-  .letter::after{
-    content:'Open full letter →';position:absolute;inset:auto 0 0 0;
-    background:linear-gradient(transparent,rgba(22,27,25,.97) 62%);
-    color:var(--green);font-size:.78rem;font-weight:500;padding:34px 15px 12px;
+  .why-items{margin-top:34px;padding-top:34px;border-top:1px solid var(--border);display:grid;gap:26px}
+  .why-item{display:grid;grid-template-columns:40px 1fr;gap:18px;align-items:start}
+  .why-ico{
+    width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+    background:var(--green-100);border:1px solid rgba(94,201,138,.26);
   }
+  .why-ico svg{width:19px;height:19px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .why-item h3{font-size:1.02rem;color:var(--green);margin-bottom:5px}
+  .why-item p{color:var(--muted);font-size:.93rem;font-weight:300;line-height:1.6;max-width:54ch}
 
-  .steps{display:grid}
-  .step{display:flex;align-items:center;gap:12px;padding:9px 0;font-size:.86rem;color:var(--fg-2);border-bottom:1px solid var(--border)}
-  .step:last-child{border-bottom:none}
-  .step .d{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
-  .step.off{color:var(--dim)}
-  .step.off .d{background:var(--border-2)}
-  .step .w{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--dim)}
-
-  .programs{
-    margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:var(--border);gap:1px;
+  .why-visual{position:relative}
+  .why-visual::before{
+    content:'';position:absolute;inset:-14%;z-index:0;pointer-events:none;
+    background:radial-gradient(closest-side circle at 50% 50%, var(--green-100), transparent 74%);
   }
-  .prog{background:var(--surface);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .prog span:first-child{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.06em;color:var(--fg-2)}
+  .why-visual a{position:relative;z-index:1;display:block;border-radius:var(--r-xl);overflow:hidden;
+    border:1px solid var(--border-2);box-shadow:0 20px 50px rgba(0,0,0,.45);transition:transform .2s}
+  .why-visual a:hover{transform:translateY(-3px)}
+  .why-visual img{display:block;width:100%;background:#fff}
+
+  /* ---- program logos ---- */
+  .logos{margin-top:72px;padding-top:44px;border-top:1px solid var(--border)}
+  .logos-label{
+    display:block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:22px;
+  }
+  .logo-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .logo-cell{
+    border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);
+    height:96px;display:grid;place-items:center;padding:22px;transition:border-color .2s,background .2s;
+  }
+  .logo-cell:hover{border-color:var(--border-2);background:#1a201d}
+  .logo-cell img{
+    max-width:100%;max-height:30px;width:auto;
+    filter:brightness(0) invert(1);opacity:.5;transition:opacity .2s;
+  }
+  .logo-cell:hover img{opacity:.85}
 
   /* ---- experience ---- */
   .tl{border-top:1px solid var(--border)}
@@ -251,8 +261,8 @@
   <div class="wrap">
     <a href="#top" class="brand"><i>MN</i>Marcelo Noguera</a>
     <div class="nav-links">
-      <a href="#work">Work</a>
       <a href="#recognition">Recognition</a>
+      <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </div>
@@ -294,11 +304,98 @@
   </div>
 </div>
 
+<section id="recognition" style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap reveal">
+    <div class="why">
+      <div class="why-body">
+        <span class="eyebrow">Why me</span>
+        <h2><span class="ghost">Security work</span> that held up to outside scrutiny.</h2>
+        <p>
+          Seven years of offensive security, most of it inside institutions where a mistake is
+          measured in regulatory findings rather than downtime. The work below was reported
+          through official disclosure channels and judged by the organisations that received it.
+        </p>
+        <p>
+          Technical detail stays withheld. Outcomes are shown exactly as each program recorded them.
+        </p>
+
+        <div class="why-items">
+          <div class="why-item">
+            <div class="why-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg>
+            </div>
+            <div>
+              <h3>Recognised by NASA's disclosure program</h3>
+              <p>
+                Letter of appreciation signed by the Senior Agency Information Security Officer,
+                NASA Office of the Chief Information Officer, for a vulnerability identified and
+                responsibly reported under NASA's VDP.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-ico">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.2 11.8l2 2 3.6-3.6"/></svg>
+            </div>
+            <div>
+              <h3>Bounty awarded by Anduril Industries</h3>
+              <p>
+                An authentication bypass on a public Anduril host, from an HTTP method validation
+                flaw in an edge function. Closed as informative at first — I contested it with
+                further impact analysis, the report was reopened, and the program paid out.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-ico">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M4 21V10l8-6 8 6v11"/><path d="M9.5 21v-6h5v6"/></svg>
+            </div>
+            <div>
+              <h3>Seven years in banking and critical infrastructure</h3>
+              <p>
+                Currently Senior Security Specialist for a national bank, after four employers
+                across financial services and critical infrastructure — adversarial work under
+                real compliance and production constraints.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual">
+        <a href="assets/nasa-vdp-letter.jpeg" target="_blank" rel="noopener">
+          <img src="assets/nasa-vdp-letter.jpeg" alt="NASA Vulnerability Disclosure Program letter of appreciation addressed to Marcelo Noguera, signed by the Senior Agency Information Security Officer, dated August 20, 2026." loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <div class="logos">
+      <span class="logos-label">Programs I have reported vulnerabilities to</span>
+      <div class="logo-row">
+        <div class="logo-cell"><img src="assets/logos/nasa.svg" alt="NASA" loading="lazy" /></div>
+        <div class="logo-cell"><img src="assets/logos/anduril.svg" alt="Anduril Industries" loading="lazy" /></div>
+        <div class="logo-cell"><img src="assets/logos/plaid.svg" alt="Plaid" loading="lazy" /></div>
+        <div class="logo-cell"><img src="assets/logos/gitlab.svg" alt="GitLab" loading="lazy" /></div>
+        <div class="logo-cell"><img src="assets/logos/tripcom.svg" alt="Trip.com" loading="lazy" /></div>
+      </div>
+      <p style="color:var(--dim);font-size:.85rem;font-weight:300;margin-top:18px;max-width:92ch">
+        Logos identify the disclosure programs that received my reports. They do not imply any
+        endorsement, affiliation or commercial relationship. Two further Anduril reports — an
+        exposed VPN management interface and an unrestricted authentication brute-force path —
+        were confirmed valid but already known to the program. On a Plaid submission the triage
+        team noted the “exceptional documentation quality” of the report.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="eyebrow">Selected work</span>
-      <h2>A condition-grading system, built and deployed end to end.</h2>
+      <h2>Applied AI systems, built and deployed end to end.</h2>
       <p>From the model contract to the container running in production.</p>
     </div>
 
@@ -347,66 +444,6 @@
         </a>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="recognition" style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="eyebrow">External validation</span>
-      <h2>Independent research, recognised by the programs that received it.</h2>
-      <p>Reported through official disclosure channels. Technical detail is withheld; outcomes are
-         shown as reported by each program.</p>
-    </div>
-
-    <div class="rec">
-      <a class="rc" href="assets/nasa-vdp-letter.jpeg" target="_blank" rel="noopener">
-        <div class="rc-top">
-          <h3>NASA — Vulnerability Disclosure Program</h3>
-          <span class="chip chip-mint">Aug 2026</span>
-        </div>
-        <div class="letter">
-          <img src="assets/nasa-vdp-letter.jpeg" alt="NASA Vulnerability Disclosure Program letter of appreciation addressed to Marcelo Noguera, signed by the Senior Agency Information Security Officer, dated August 20, 2026." loading="lazy" />
-        </div>
-        <p>
-          Letter of appreciation signed by the Senior Agency Information Security Officer, NASA
-          Office of the Chief Information Officer, for a vulnerability identified and responsibly
-          reported under NASA's VDP.
-        </p>
-        <div class="rc-foot">NASA OCIO · LETTER DATED 2026-08-20</div>
-      </a>
-
-      <div class="rc">
-        <div class="rc-top">
-          <h3>Anduril Industries — authentication bypass</h3>
-          <span class="chip chip-mint">Bounty awarded</span>
-        </div>
-        <p>
-          Authentication bypass on a public Anduril host, caused by an HTTP method validation flaw
-          in an edge function. Triaged as informative at first — I contested the assessment with
-          additional impact analysis, the report was reopened, and the program paid out.
-        </p>
-        <div class="steps">
-          <div class="step"><span class="d"></span>Report submitted<span class="w">14 JUL</span></div>
-          <div class="step off"><span class="d"></span>Closed — informative<span class="w">18 JUL</span></div>
-          <div class="step"><span class="d"></span>Reopened after rebuttal<span class="w">04 AUG</span></div>
-          <div class="step"><span class="d"></span>Bounty awarded<span class="w">14 AUG</span></div>
-        </div>
-        <div class="rc-foot">HACKERONE · REPORT #3862318 · 2026</div>
-      </div>
-    </div>
-
-    <div class="programs">
-      <div class="prog"><span>ANDURIL INDUSTRIES</span><span class="chip chip-mint">Bountied</span></div>
-      <div class="prog"><span>PLAID</span><span class="chip chip-sky">Triaged</span></div>
-      <div class="prog"><span>GITLAB</span><span class="chip">Submitted</span></div>
-      <div class="prog"><span>TRIP.COM</span><span class="chip">Submitted</span></div>
-    </div>
-    <p style="color:var(--dim);font-size:.86rem;font-weight:300;margin-top:16px;max-width:88ch">
-      Two further Anduril reports — an exposed VPN management interface and an unrestricted
-      authentication brute-force path — were confirmed valid but already known to the program.
-      On a Plaid submission the triage team noted the “exceptional documentation quality” of the report.
-    </p>
   </div>
 </section>
 
